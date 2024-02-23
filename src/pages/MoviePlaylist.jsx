@@ -43,21 +43,21 @@ const MoviePlaylist = () => {
     const encodedPlaylist = encodeURIComponent(playlistJSON);
     const link = `${window.location.origin}/playlist?data=${encodedPlaylist}`;
 
-    // const shortenedLink = await axios.post(
-    //   "https://api-ssl.bitly.com/v4/shorten",
-    //   {
-    //     long_url: link,
-    //   },
-    //   {
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //       Authorization: `Bearer ${import.meta.env.VITE_BITLY_ACCESS_TOKEN}`,
-    //     },
-    //   }
-    // );
+    const shortenedLink = await axios.post(
+      "https://api-ssl.bitly.com/v4/shorten",
+      {
+        long_url: link,
+      },
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${import.meta.env.VITE_BITLY_ACCESS_TOKEN}`,
+        },
+      }
+    );
 
-    setShareableLink(link);
-    navigate(`/playlist?data=${encodedPlaylist}`);
+    setShareableLink(shortenedLink.data.link);
+    // navigate(`/playlist?data=${encodedPlaylist}`);
   };
   return (
     <div>
