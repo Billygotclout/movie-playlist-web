@@ -41,7 +41,6 @@ function App() {
     const playlistJSON = JSON.stringify(playlist);
     const encodedPlaylist = encodeURIComponent(playlistJSON);
     const link = `${window.location.origin}/playlist?data=${encodedPlaylist}`;
-    console.log(link);
 
     const shortenedLink = await axios.post(
       "https://api-ssl.bitly.com/v4/shorten",
