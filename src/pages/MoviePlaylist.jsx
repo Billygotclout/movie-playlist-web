@@ -45,7 +45,7 @@ const MoviePlaylist = () => {
     const link = `${window.location.origin}/playlist?data=${encodedPlaylist}`;
 
     const shortenedLink = await axios.post(
-      "https://t.ly/api/v1/link/shorten",
+      "https://api-ssl.bitly.com/v4/shorten",
       {
         long_url: link,
       },
@@ -58,7 +58,7 @@ const MoviePlaylist = () => {
       }
     );
     console.log(link);
-    console.log(shortenedLink.data.short_url);
+    console.log(shortenedLink.data.link);
     setShareableLink(link);
     // navigate(`/playlist?data=${encodedPlaylist}`);
   };
