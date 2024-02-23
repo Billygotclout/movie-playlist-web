@@ -54,9 +54,8 @@ function App() {
         },
       }
     );
-    console.log(shortenedLink.data.link);
 
-    setShareableLink(link);
+    setShareableLink(shortenedLink.data.link);
   };
 
   return (
