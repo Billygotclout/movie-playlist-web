@@ -7,6 +7,7 @@ const PlaylistPage = () => {
     // Parse playlist data from URL
     const urlParams = new URLSearchParams(window.location.search);
     const data = urlParams.get("data");
+
     if (data) {
       try {
         const decodedData = decodeURIComponent(data);
