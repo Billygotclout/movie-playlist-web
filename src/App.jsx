@@ -43,18 +43,19 @@ function App() {
     const link = `${window.location.origin}/playlist?data=${encodedPlaylist}`;
     console.log(link);
 
-    // const shortenedLink = await axios.post(
-    //   "https://api-ssl.bitly.com/v4/shorten",
-    //   {
-    //     long_url: link,
-    //   },
-    //   {
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //       Authorization: `Bearer ${import.meta.env.VITE_BITLY_ACCESS_TOKEN}`,
-    //     },
-    //   }
-    // );
+    const shortenedLink = await axios.post(
+      "https://api-ssl.bitly.com/v4/shorten",
+      {
+        long_url: link,
+      },
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${import.meta.env.VITE_BITLY_ACCESS_TOKEN}`,
+        },
+      }
+    );
+    console.log(shortenedLink.data.link);
 
     setShareableLink(link);
   };
