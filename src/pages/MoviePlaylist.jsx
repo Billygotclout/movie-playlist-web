@@ -57,9 +57,8 @@ const MoviePlaylist = () => {
         },
       }
     );
-    console.log(link);
-    console.log(shortenedLink.data.link);
-    setShareableLink(link);
+
+    setShareableLink(shortenedLink.data.link);
     // navigate(`/playlist?data=${encodedPlaylist}`);
   };
   return (
